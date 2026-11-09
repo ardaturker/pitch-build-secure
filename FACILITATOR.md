@@ -6,7 +6,7 @@ This is for the two facilitators. Students are welcome to read it too: the scori
 
 - [ ] Ask the students to create a GitHub account beforehand: <https://github.com/signup>.
 - [ ] Set up 2–3 spare lab laptops with a browser and a logged-in chat agent.
-- [ ] Prepare 5 paper guess cards, **pre-numbered Team 1–5**, with fields: team name, token guess, and the agent's estimate. The card number is the team's number and folder.
+- [ ] Prepare 5 paper guess cards, **pre-numbered Team 1–5**, with fields: team name and token guess. The card number is the team's number and folder. The agent's estimate ends up in the team's `summary.md`.
 - [ ] Print 2 copies of the scorecard below.
 - [ ] Dry-run [MASTER-PROMPT.md](MASTER-PROMPT.md) in at least 2 different chat tools, and open a test PR from a non-owner account.
 - [ ] Check that GitHub Pages is **off**.
@@ -18,8 +18,9 @@ This is for the two facilitators. Students are welcome to read it too: the scori
 | 0–5 | Show this repo on the big screen. Explain the goal (money + user problem + security + critical infrastructure). Say: "Pick a driver, open MASTER-PROMPT.md, paste it, follow the agent." Hand out one numbered guess card per team: "Your card number is your team number." |
 | 5–15 | Walk around. Help teams that are stuck on an idea. Check that every team has given the agent its team number. |
 | 15–30 | Listen in on the security answers. Challenge vague ones: "Which attacker? Protecting what?" At 25 min, call "5 minutes left for the checklist". |
-| 30–40 | Merge PRs as they arrive, after a quick glance (see the merge routine). Help with GitHub. Use the fallback if a team is stuck. |
-| 40–50 | Collect the guess cards **before** teams type `FINISH`. When a team calls you, read the **first** FINISH reply off their screen and write it on the card. Run the 1-minute pitches from each team's mockup on screen. |
+| 30–35 | Teams design their main screen and the agent builds `mockup.html`. Nudge teams that are still in the checklist. |
+| 35–40 | Collect the guess cards **before** teams type `FINISH`. Teams that have time play the optional Security Game first. Merge PRs as they arrive, after a quick glance (see the merge routine). Help with GitHub, and use the fallback if a team is stuck. |
+| 40–50 | Run the 1-minute pitches from each team's mockup on screen. |
 | Buffer | Remind everyone to fork the repo now if they want to keep their work. Send them to lunch. |
 
 ## Merge routine (from minute 30)
@@ -42,7 +43,7 @@ This is for the two facilitators. Students are welcome to read it too: the scori
 
    Mockup URL: `https://moller90.github.io/pitch-build-secure/teams/team-N/mockup.html`
 
-4. Fill in the scorecard. Give +2 to the team whose paper guess is closest to its own agent's estimate, measured as relative difference.
+4. Fill in the scorecard. Give +2 to the team whose paper guess is closest to the total in the **Token estimate** section of its own `summary.md`, measured as relative difference. Use **What we changed after being challenged** and **Security game** to judge how much the team thought for itself.
 5. Pick: the winner, the best security insight, and the closest guess.
 
 ## Announcement (5 min)

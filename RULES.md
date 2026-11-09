@@ -24,7 +24,7 @@ Your `summary.md` must cover:
 
 The team folder `teams/team-N/` must contain:
 
-- `summary.md`
+- `summary.md`: your checklist answers in your own words, what you changed after being challenged, the Security Game result (if played) and the token + cost estimate
 - `mockup.html`
 
 Hand them in as a pull request. The master prompt shows you how.
@@ -45,7 +45,11 @@ The maximum is **27 points**. If teams tie, the higher Security score wins.
 
 1. Write your team's guess for the total tokens used (input + output, whole conversation) on the paper card.
 2. Hand the card to a facilitator.
-3. **Only then** type `FINISH` in the chat. The agent reveals its estimate.
+3. **Only then** type `FINISH` in the chat. The agent reveals its estimate (tokens and cost in USD) and puts it in `summary.md`.
+
+## Your work, not the agent's
+
+The agent is a coach. It won't give you ideas or answers, but `HINT` gets you a nudge. Judges read `summary.md`, so answers you clearly thought through yourselves score higher than generic ones.
 
 ## Content rules
 
