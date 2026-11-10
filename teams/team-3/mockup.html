@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Art-helper</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f6f8f9;color:#222}
+.container{max-width:1000px;margin:auto;padding:20px}
+.hero{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border-radius:12px;padding:16px}
+h1,h2{margin-top:0}
+.screen{border:3px solid #222;border-radius:20px;background:#fff;padding:15px}
+.scanner{height:80px;border:3px dashed #333;border-radius:12px;
+display:flex;align-items:center;justify-content:center;font-size:30px}
+.map{height:120px;background:#e8ecef;border-radius:10px;
+display:flex;align-items:center;justify-content:center;margin:12px 0}
+.buttons{display:flex;gap:10px}
+.btn{flex:1;padding:12px;border:none;border-radius:10px;background:#2f6fed;color:#fff}
+ul{margin:0}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>Art-helper</h1>
+<p>Art-helper helps museum visitors to gain updated information by scanning an NFC tag.</p>
+</div>
+<div class="grid">
+<div class="card">
+<h2>Problem</h2>
+<ul>
+<li>Blind and visually impaired visitors struggle to access artwork information.</li>
+<li>Dyslexic users have difficulties reading descriptions.</li>
+<li>Tourists and school classes need easier access to information.</li>
+<li>Current audio solutions use borrowed headsets with poor sound quality.</li>
+</ul>
+</div>
+<div class="card">
+<h2>Solution</h2>
+<ul>
+<li>NFC tag on every artwork.</li>
+<li>Visitors scan with the Art-helper app.</li>
+<li>Audio descriptions and updated information on demand.</li>
+<li>Users listen through their own headphones.</li>
+</ul>
+</div>
+<div class="card">
+<h2>Pricing</h2>
+<ul>
+<li>Buy-in: 1,000,000 DKK.</li>
+<li>NFC tags: 5 DKK per tag.</li>
+<li>Subscription: 150,000 DKK per month for all museums in Denmark.</li>
+<li>Museums and cultural organisations fund the service.</li>
+</ul>
+</div>
+<div class="card">
+<h2>Security & Critical Infrastructure</h2>
+<ul>
+<li>Risks: GDPR issues, DoS attacks and data leaks.</li>
+<li>Mitigations: EU data storage, hardened security and DoS protection.</li>
+<li>Risk scenario: attackers misuse audio channels for propaganda or threats.</li>
+<li>Additional protection through database and function separation.</li>
+</ul>
+</div>
+<div class="card">
+<h2>AI Cost</h2>
+<p>MISSING</p>
+<p>AI is used to improve the listening experience and voice quality.</p>
+</div>
+<div class="card">
+<h2>Main Screen</h2>
+<div class="screen">
+<h3>Accessible Museum Guide</h3>
+<div class="scanner">📱 Scan NFC Tag</div>
+<div class="map">🗺 Museum Map</div>
+<div class="buttons">
+<button class="btn">▶ Play</button>
+<button class="btn">⏸ Pause</button>
+</div>
+<p><strong>User:</strong> Museum visitors, especially blind and dyslexic users.</p>
+<p><strong>Key Action:</strong> Scan artwork NFC tag.</p>
+<p><strong>Look & Feel:</strong> Accessible.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
