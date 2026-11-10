@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Water Filter</title>
+<style>
+  :root { --blue:#1e6fb8; --light:#e8f2fb; --ink:#1b2733; --muted:#5b6b7a; --ok:#2e9d5b; --warn:#d98a1c; --bg:#f7fafc; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.5; }
+  header { background:var(--blue); color:#fff; padding:40px 16px; text-align:center; }
+  header h1 { margin:0 0 8px; font-size:2rem; }
+  header p { margin:0 auto; max-width:640px; opacity:.95; }
+  main { max-width:960px; margin:0 auto; padding:24px 16px 48px; }
+  section { background:#fff; border-radius:12px; padding:20px; margin:20px 0; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  h2 { margin-top:0; color:var(--blue); }
+  .missing { color:#b23b3b; font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .card { border:1px solid #dde7f0; border-radius:10px; padding:16px; }
+  .price { font-size:1.6rem; font-weight:700; color:var(--blue); }
+  /* App main screen */
+  .app { border:2px solid var(--blue); border-radius:16px; overflow:hidden; max-width:420px; margin:0 auto; background:#fff; }
+  .app-top { background:var(--blue); color:#fff; padding:12px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .signin { background:#fff; color:var(--blue); border:none; border-radius:6px; padding:6px 12px; font-weight:600; }
+  .app-body { padding:16px; }
+  .meter { height:14px; background:#e5ecf2; border-radius:8px; overflow:hidden; margin:6px 0; }
+  .meter span { display:block; height:100%; width:68%; background:var(--ok); }
+  .status { display:flex; justify-content:space-between; font-size:.95rem; }
+  .key { display:block; width:100%; margin:16px 0 8px; padding:14px; font-size:1.05rem; font-weight:700; color:#fff; background:var(--blue); border:none; border-radius:10px; }
+  .products { display:flex; gap:10px; }
+  .product { flex:1; background:var(--light); border-radius:8px; padding:10px; font-size:.85rem; text-align:center; }
+  .note { font-size:.8rem; color:var(--muted); text-align:center; margin-top:8px; }
+  ul { padding-left:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>💧 Smart Water Filter</h1>
+  <p>Smart Water Filter helps homeowners in Sønderborg with limescale problems to stop limescale, dirty clothes and dirty water in their houses by installing a treatment unit next to their basement pipes, connected to the cloud to track filter life and water flow.</p>
+  <p style="margin-top:10px;font-size:.9rem;opacity:.85">Team 2 · Cute Cats 🐱</p>
+</header>
+<main>
+
+<section>
+  <h2>Main screen: homeowner app</h2>
+  <div class="app">
+    <div class="app-top">
+      <strong>Smart Water Filter</strong>
+      <button class="signin">Sign in</button>
+    </div>
+    <div class="app-body">
+      <h3 style="margin:0 0 4px">Filter status</h3>
+      <div class="status"><span>Basement unit #SWF-0001</span><span style="color:var(--ok)">● Working</span></div>
+      <div class="meter"><span></span></div>
+      <div class="status"><span>68% filter life left</span><span>Change in ~117 days</span></div>
+      <button class="key">Check filter status</button>
+      <h3 style="margin:16px 0 8px">Other products</h3>
+      <div class="products">
+        <div class="product">🧩<br>Replacement filter<br><strong>240 kr</strong></div>
+        <div class="product">📦<br>Smart Water Filter unit<br><strong>1,028 kr</strong></div>
+      </div>
+      <p class="note">Sample data only. When you change a filter, scan its QR code first.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Problem</h2>
+  <ul>
+    <li><strong>Who:</strong> homeowners in Sønderborg with limescale problems in their houses.</li>
+    <li><strong>How it hurts:</strong> limescale in the house, dirty clothes, dirty water.</li>
+    <li><strong>How they solve it today:</strong> <span class="missing">MISSING</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Solution</h2>
+  <div class="grid">
+    <div class="card">🏠 <strong>In the basement</strong><br>A limescale treatment unit installed next to the house's pipes.</div>
+    <div class="card">☁️ <strong>Cloud connected</strong><br>Measures filter life and water flow, and builds statistics on filter changes across the country.</div>
+    <div class="card">🔳 <strong>QR-scanned filters</strong><br>Every new filter is scanned before it goes in, to stop faulty data.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Pricing</h2>
+  <div class="grid">
+    <div class="card"><div class="price">1,028 kr</div>Smart Water Filter module (one-time)</div>
+    <div class="card"><div class="price">240 kr / year</div>Filter change</div>
+    <div class="card"><strong>Why buy ours?</strong><br><span class="missing">MISSING</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Security &amp; critical infrastructure</h2>
+  <ul>
+    <li><strong>Threat:</strong> someone hacks into the system and steals the data. Which data, why, and the mitigation: <span class="missing">MISSING</span></li>
+    <li><strong>Abuse case:</strong> someone misuses the product by changing the filters. <strong>Mitigation:</strong> people must scan the QR code on the new filter before fitting it.</li>
+    <li><strong>Threats 2 &amp; 3:</strong> <span class="missing">MISSING</span></li>
+    <li><strong>Critical infrastructure scenario:</strong> <span class="missing">MISSING</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>AI cost</h2>
+  <p><strong>≈ 2 EUR per user per month.</strong> Where AI is used and the assumptions behind the number: <span class="missing">MISSING</span></p>
+</section>
+
+</main>
+</body>
+</html>
