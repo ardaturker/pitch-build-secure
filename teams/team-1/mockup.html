@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HeatSnitch — heat-theft detection</title>
+<style>
+  :root{--ink:#1c2733;--muted:#5b6b7b;--bg:#f7f5f2;--card:#fff;--heat:#e2622b;--ok:#2e7d5b;--warn:#b3541e;--line:#e6e0d8}
+  *{box-sizing:border-box;margin:0}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  header{background:var(--ink);color:#fff;padding:2rem 1.5rem}
+  header h1{font-size:1.7rem;letter-spacing:.5px}
+  header h1 span{color:var(--heat)}
+  header p{color:#c9d2db;max-width:60ch;margin-top:.4rem}
+  main{max-width:980px;margin:0 auto;padding:1.5rem}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.4rem;margin-bottom:1.3rem}
+  h2{font-size:1.15rem;color:var(--warn);margin-bottom:.7rem;text-transform:uppercase;letter-spacing:1px}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+  ul{padding-left:1.1rem}
+  li{margin-bottom:.45rem}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+  th{font-size:.75rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+  .bar{height:10px;border-radius:5px;background:var(--heat);display:inline-block;vertical-align:middle}
+  .tag{font-size:.72rem;font-weight:bold;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+  .t-high{background:#f8e3d8;color:var(--warn)}
+  .t-crit{background:#f5d3c8;color:#8a2f10}
+  button{font:inherit;background:var(--heat);color:#fff;border:0;border-radius:7px;padding:.45rem .9rem;cursor:pointer}
+  .btn-ghost{background:transparent;color:var(--heat);border:1px solid var(--heat)}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.2rem}
+  .kpi div{border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem}
+  .kpi b{display:block;font-size:1.35rem;color:var(--heat)}
+  .kpi small{color:var(--muted)}
+  .screen-note{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:.8rem}
+  footer{text-align:center;color:var(--muted);font-size:.85rem;padding:1rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔥 Heat<span>Snitch</span></h1>
+  <p>An AI watchdog for district heating utilities: it watches every building's heat
+     substation data and flags suspect meters — turning stolen heat into recovered
+     revenue, without raising prices for honest customers.</p>
+</header>
+<main>
+
+<section>
+  <h2>Problem</h2>
+  <div class="cols">
+    <ul>
+      <li><b>3–7% of distributed heat is never billed</b> — magnet tricks, illegal bypasses, meter tampering.</li>
+      <li>The utility covers the loss by <b>raising prices for everyone</b>.</li>
+      <li>Honest customers lose trust — and some start cheating too. <b>Theft breeds theft.</b></li>
+    </ul>
+    <ul>
+      <li>Nobody can audit <b>100,000+ substations</b> by hand: today it's spot checks and crossed fingers.</li>
+      <li>A public scandal about cheating factories makes it worse — angry customers, boycotts, board panic.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Solution</h2>
+  <ul>
+    <li>A small AI model watches <b>flow/return temperatures and consumption curves</b> from every substation.</li>
+    <li>It flags a <b>suspect meter, never a person</b> — the utility's control team decides.</li>
+    <li>Flat fee, no per-accusation reward: <b>the incentive to accuse honestly is built into the pricing.</b></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Pricing</h2>
+  <table>
+    <tr><th>Plan</th><th>Price</th><th>Why it works</th></tr>
+    <tr><td>Flat SaaS</td><td><b>€5 / substation / month</b></td><td>No reward for false accusations. Example: 100,000 substations ≈ <b>€6M/year</b> — versus millions lost per city.</td></tr>
+    <tr><td>Optional</td><td>Success fee ~20% of recovered revenue</td><td>"We only earn when you earn" — easy first sale.</td></tr>
+  </table>
+  <p class="screen-note">One caught heat thief pays for the service for years.</p>
+</section>
+
+<section>
+  <h2>Security &amp; critical infrastructure</h2>
+  <div class="cols">
+    <ul>
+      <li><b>"Burglar's oracle":</b> empty-flat detection → data stays <b>on-prem</b> at the utility, per-unit data never exported, access logging.</li>
+      <li><b>Weaponized flags:</b> landlord pressures tenant, or spoofed telemetry frames a neighbour → flags are <b>indicators only</b>; signed meter data + mandatory human audit with explainable evidence.</li>
+      <li><b>MITM / replay on old Modbus links:</b> attacker replays "normal" data → signed telemetry, device attestation, and an alarm when data looks <b>too clean</b>.</li>
+      <li><b>The evil twist:</b> a leaked dashboard shows attackers which buildings are easy targets → no raw model scores exposed, rate-limited queries, query auditing.</li>
+    </ul>
+    <ul>
+      <li><b>Critical infrastructure (KRITIS):</b> a state actor pivots from remote read-access into grid OT, or floods crews with mass-spoofed alerts during a January cold snap.</li>
+      <li>Our answer: <b>read-only integration, zero remote-control capability, network-segmented deployment.</b></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>AI cost</h2>
+  <ul>
+    <li>Anomaly detection: small time-series model, ~24 values/day per substation.</li>
+    <li>The LLM only drafts the human-audit report.</li>
+    <li>≈ <b>€0.05–0.20 per user/month</b> — trivially covered by the subscription.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Main screen — control team inspector &amp; utility analyst</h2>
+  <div class="kpi">
+    <div><b>4.8%</b><small>of distributed heat unbilled</small></div>
+    <div><b>€3.1M</b><small>recovered this year</small></div>
+    <div><b>37</b><small>suspect meters awaiting audit</small></div>
+  </div>
+  <h3 style="font-size:.95rem;margin-bottom:.5rem">Heat lost per area</h3>
+  <table>
+    <tr><th>Area</th><th style="width:45%">Loss</th><th>Trend</th></tr>
+    <tr><td>Nordhavn</td><td><span class="bar" style="width:80%"></span></td><td><span class="tag t-crit">rising</span></td></tr>
+    <tr><td>Valby</td><td><span class="bar" style="width:45%"></span></td><td><span class="tag t-high">watch</span></td></tr>
+    <tr><td>Amager</td><td><span class="bar" style="width:22%"></span></td><td>stable</td></tr>
+  </table>
+  <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Suspect households — paying less than they consume</h3>
+  <table>
+    <tr><th>Meter</th><th>Signal</th><th>Consumed vs billed</th><th>Action</th></tr>
+    <tr><td>SB-40213</td><td><span class="tag t-crit">magnet suspected</span></td><td>3.4× vs 0.9×</td><td><button>Charge back + interest</button> <button class="btn-ghost">Dispatch control team</button></td></tr>
+    <tr><td>SB-11877</td><td><span class="tag t-high">bypass suspected</span></td><td>2.1× vs 1.0×</td><td><button>Charge back + interest</button> <button class="btn-ghost">Dispatch control team</button></td></tr>
+    <tr><td>SB-99301</td><td><span class="tag t-high">sensor fault?</span></td><td>1.8× vs 1.1×</td><td><button class="btn-ghost">Dispatch control team</button></td></tr>
+  </table>
+  <p class="screen-note">Flags are indicators only — a human control team audits before any charge-back. Sample data shown.</p>
+</section>
+
+</main>
+<footer>HeatSnitch — Team GOATS (Team 1) · student exercise mockup</footer>
+</body>
+</html>
